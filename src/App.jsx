@@ -10,6 +10,7 @@ import Final  from "./components/steps/Final";
 function App() {
 
   const [currentStep, setCurrentStep] = useState(1);
+  const [isFormValid, setIsFormValid] = useState(false);
 
   const steps = [
     "Account Information",
@@ -21,7 +22,7 @@ function App() {
   const displayStep = (step) => {
     switch(step) {
       case 1:
-        return < Account />
+        return < Account setIsFormValid={setIsFormValid} />
       case 2:
         return < Details />
       case 3:
@@ -29,6 +30,7 @@ function App() {
       case 4:
         return < Final />
       default: 
+        return null;
     }
   }
 
@@ -63,6 +65,7 @@ function App() {
           handleClick = {handleClick}
           currentStep = {currentStep}
           steps = {steps}
+          isFormValid={isFormValid}
         />
       )}
     </div>
