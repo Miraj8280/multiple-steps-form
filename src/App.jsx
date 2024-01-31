@@ -1,21 +1,18 @@
 import { useState } from "react";
-import { StepperContext } from "./contexts/StepperContext";
+import { UseContextProvider } from "./contexts/StepperContext";
 import Stepper from "./components/Stepper";
 import StepperControl from "./components/StepperControl";
-
 import Account from "./components/steps/Account";
-import { Details } from "./components/steps/Details";
-import { Final } from "./components/steps/Final";
+import Details from "./components/steps/Details";
+import Final  from "./components/steps/Final";
 
 function App() {
 
   const [currentStep, setCurrentStep] = useState(1);
-  const [userData, setUserData] = useState('');
-  const [finalData, setFinalData] = useState([]);
 
   const steps = [
     "Account Information",
-    "Personal Details",
+    "Address",
     "Complete"
   ];
 
@@ -50,26 +47,20 @@ function App() {
         />
 
         {/* Display components */}
-        <div className="my-10 p-10">
-          <StepperContext.Provider value={{
-            userData,
-            setUserData,
-            finalData,
-            setFinalData
-          }}>
-            {displayStep(currentStep)}
-          </StepperContext.Provider>
-
+        <div className="my-10 p-10 ">
+          <UseContextProvider>{displayStep(currentStep)}</UseContextProvider>
         </div>
 
       </div>
 
       {/* Navigation controls */}
-      < StepperControl 
-        handleClick = {handleClick}
-        currentStep = {currentStep}
-        steps = {steps}
-      />
+      {currentStep !== steps.length && (
+        < StepperControl 
+          handleClick = {handleClick}
+          currentStep = {currentStep}
+          steps = {steps}
+        />
+      )}
     </div>
   );
 }

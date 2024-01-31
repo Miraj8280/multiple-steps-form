@@ -69,7 +69,7 @@ const Stepper = ({steps, currentStep}) => {
                         <div className={`rounded-full transition duration-500 ease-in-out border-2 border-gray-300 h-12 w-12 flex items-center justify-center py-3 ${step.selected ? 'bg-green-600 text-white font-bold border border-green-600' : ''}`}>
                             {/* Display number */}
                             {step.completed ? (
-                                <span className='text-white font-bold text-xl'>&#10003;</span>
+                                <span className='text-white font-bold text-xl'>{index + 1}</span>
                             ): (index + 1)}
                             
                         </div>

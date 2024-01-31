@@ -1,8 +1,7 @@
-import {useContext} from 'react';
-import { StepperContext } from '../../contexts/StepperContext';
+import { useStepperContext } from '../../contexts/StepperContext';
 
 export default function Account() {
-    const {userData, setUserData} = useContext(StepperContext);
+    const {userData, setUserData} = useStepperContext();
     const handleChange = (e) => {
         const {name, value} = e.target;
         setUserData({...userData, [name]: value});
