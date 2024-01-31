@@ -4,6 +4,7 @@ import Stepper from "./components/Stepper";
 import StepperControl from "./components/StepperControl";
 import Account from "./components/steps/Account";
 import Details from "./components/steps/Details";
+import Payment from "./components/steps/Payment";
 import Final  from "./components/steps/Final";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
   const steps = [
     "Account Information",
     "Address",
+    "Payment",
     "Complete"
   ];
 
@@ -23,6 +25,8 @@ function App() {
       case 2:
         return < Details />
       case 3:
+        return < Payment />
+      case 4:
         return < Final />
       default: 
     }
